@@ -1,0 +1,68 @@
+﻿
+@{
+    //Layout = null;
+    var unamepwd = new[]
+    {
+        new{Username="gangu",password="123" },
+        new{Username="divya",password="234" },
+        new{Username="shivani",password="345" },
+        new{Username="harsha",password="456" },
+    };
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>loginlist</title>
+</head>
+<body>
+    <div> 
+        <form method="post">
+            <label>Enter Username</label>
+            <input type="text" name="uname" id="uname" />
+            <br />
+            <label>Enter password</label>
+            <input type="text" name="pwd" id="pwd" />
+            <br />
+            <input type="submit" name="login" id="login" />
+        </form>
+    </div>
+    <div>
+        @{
+            if (IsPost)
+            {
+                for (int i = 0; i < unamepwd.Length; i++)
+                {
+                    if (Request["uname"] == unamepwd[i].Username && Request["pwd"]== unamepwd[i].password)
+                    {
+                        <h3 style="color:green">Login Success</h3>
+                        break;
+                    }
+                    else
+                    {
+                        <h3 style="color:red">Login Failed</h3>
+                        break;
+                    }
+                }
+                @*foreach(var item in unamepwd)
+                {
+                    if(Request["uname"] ==item.Username && Request["pwd"] == item.password)
+                    {
+                        <h3 style="color:green">Login Success</h3>
+                        break;
+                    }
+                    else
+                    {
+                        <h3 style="color:red">Login Failed</h3>
+                        break;
+                    }
+                }*@
+
+            }
+
+        }
+    </div>
+</body>
+</html>

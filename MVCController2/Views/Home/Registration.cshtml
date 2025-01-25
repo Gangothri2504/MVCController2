@@ -1,0 +1,81 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registration</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div> 
+        <h2 style="text-align:center">Register</h2>
+        <form method="post">
+            <label>Enter Name</label>
+            <input type="text" name="name" id="name" />
+            <br /><br />
+            <label>Enter Username</label>
+            <input type="text" name="uname" id="uname" />
+            <br /><br />
+            <label>Enter Email</label>
+            <input type="email" name="mail" id="mail" />
+            <br /><br />
+            <label>Enter password</label>
+            <input type="password" name="pwd" id="pwd" />
+            <br /><br />
+            <label>Select Gender:</label>
+            <br /><br />
+            <input type="radio" name="gender" id="male" value="Male" />
+            <label>Male</label>
+            <br /><br />
+            <input type="radio" name="gender" id="female" value="Female" />
+            <label>Female</label>
+            <br /><br />
+            <input type="radio" name="gender" id="other" value="Other"/>
+            <label>Other</label>
+            <br /><br />
+            <lable>Select State</lable>
+            <select name="state" id="state">
+                <option value="Select">Select</option>
+                <option value="Andhra">Andhra pradesh</option>
+                <option value="Telangana">Telangana</option>
+                <option value="TamilNadu">TamilNadu</option>
+                <option value="Kerala">Kerala</option>
+            </select>
+            <br /><br />
+            <input type="checkbox" name="checkbox" id="checkbox" />
+            <label>Iam not a Robot</label>
+            <br /><br />
+            @*<input type="submit" name="login" id="login" />*@
+            <button type="submit" name="login" id="login" style="width:300px; height:30px">Login</button>
+        </form>
+    </div>
+    <div>
+        @{
+            if (IsPost)
+            {
+                <h3 style="text-align: center; bottom: 0; left: 0; width: 100%; padding: 10px; margin: 0;">Login success</h3>
+                @*<span>Name: @Request["name"]</span>
+                <br />
+                <span>Username: @Request["uname"]</span>
+                <br />
+                <span>Gender: @Request["gender"]</span>
+                <br />
+                <span>State: @Request["state"]</span>*@
+            }
+        }
+
+    </div>
+</body>
+</html>

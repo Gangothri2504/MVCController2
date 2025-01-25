@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Formcontroller</title>
+</head>
+<body>
+    <div>
+        @using (@Html.BeginForm("Registerhelper", "Home", FormMethod.Post))
+        {
+            <h3 style="text-align:center">Register</h3>
+            @Html.Label("namelabel", "Enter name: ");
+            @Html.TextBox("name");
+            <br /><br />
+            @Html.Label("userlabel", "Enter Username: ");
+            @Html.TextBox("uname");
+            <br /><br />
+            @Html.Label("maillbl", "Enter Email: ");
+            <input type="email" name="mail" id="mail" />
+            <br /><br />
+            @Html.Label("pwdlabel", "Enter password: ");
+            @Html.Password("pwd");
+            <br /><br />
+            @Html.Label("genderlbl", "Enter Gender: ");
+            <br /><br />
+            @Html.RadioButton("gender", "Male", new { id = "genderMale" })
+            @Html.Label("genderMale", "Male")
+            <br />
+            @Html.RadioButton("gender", "Female", new { id = "genderFemale" })
+            @Html.Label("genderFemale", "Female")
+            <br />
+            @Html.RadioButton("gender", "Other", new { id = "genderOther" })
+            @Html.Label("genderOther", "Other")
+            <br /><br />
+            @Html.Label("statelabel", "Select State: ")
+            @Html.DropDownList("States", (SelectList)ViewBag.States, new { @class = "form-control" })
+            <br /><br />
+            @Html.CheckBox("checkbox");
+            @Html.Label("check", "Iam not a Robot: ");
+            <br /><br />
+            <input type="submit" name="login" id="login" style="width:300px; height:30px" />
+        }
+    </div>
+    <div>
+        @{ 
+            <h3>Registration Success</h3>
+        }
+    </div>
+</body>
+</html>

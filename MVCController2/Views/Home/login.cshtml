@@ -1,0 +1,46 @@
+﻿
+@{
+    string username = "adam.admin@gmail.com";
+    string password = "admin@123";
+    //Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>login</title>
+</head>
+<body>
+    <div> 
+        <form method="post">
+            <label>Enter Username:</label>
+            <input type="text" name="Username" id="Username" />
+            <br/>
+            <label>Enter Password:</label>
+            <input type="password" name="pwd" id="pwd" />
+            <br/>
+            <input type="submit" name="login" id="login"/>
+        </form>
+    </div>
+    <div>
+        @{
+            //string username = "adam.admin@gmail.com";
+            //string password = "admin@123";
+            if (IsPost)
+            {
+                if (username == Request["Username"] && password == Request["pwd"])
+                {
+                    <h3>Login Successful</h3>
+                }
+                else
+                {
+                    <h3>Login Failed</h3>
+                }
+            }
+        }
+    </div>
+    
+</body>
+</html>
